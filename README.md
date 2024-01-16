@@ -1,7 +1,8 @@
 ### To run
 
 ```
-go run .
+./build.sh
+./run.sh
 ```
 
 ### To run test
