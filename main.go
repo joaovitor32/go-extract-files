@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-	helper.UnzipAll("samples/teste.zip", "output")
+	helper.UnzipAll("testdata/teste.zip", "output")
 }

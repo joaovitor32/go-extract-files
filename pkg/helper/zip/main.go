@@ -9,15 +9,13 @@ import (
 	unarr "github.com/gen2brain/go-unarr"
 )
 
-var newArchive = unarr.NewArchive
-
 func CheckIfCompacted(path string) bool {
 	ext := filepath.Ext(path)
 	return ext == ".zip" || ext == ".rar" || ext == ".7"
 }
 
 func Unzip(path string, destiny string) (contents []string, err error) {
-	r, err := newArchive(filepath.Join(path))
+	r, err := unarr.NewArchive(filepath.Join(path))
 
 	if err != nil {
 		return nil, err

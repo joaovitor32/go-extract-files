@@ -1,6 +1,9 @@
 package helper
 
 import (
+	"fmt"
+	helper "go-extract-files/pkg/helper/file"
+	"path/filepath"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -18,7 +21,7 @@ func TestCheckIfCompacted(t *testing.T) {
 
 }
 
-func TestUnzip(t *testing.T) {
+func TestUnzipFails(t *testing.T) {
 	var path = "dummy-path"
 	var destiny = "dummy-destiny"
 
@@ -27,4 +30,18 @@ func TestUnzip(t *testing.T) {
 	if assert.NotNil(t, err) {
 		assert.Equal(t, "unarr: open file failed", err.Error())
 	}
+}
+
+func TestUnzipSuccess(t *testing.T) {
+	path, _ := filepath.Abs("../../../testdata/teste.zip")
+	var destiny = "test-output"
+
+	expectedResponse := []string{"DWSample.zip"}
+
+	response, _ := Unzip(path, destiny)
+
+	fmt.Print("aqui", response)
+
+	assert.Equal(t, response, expectedResponse, "Check if internalzip array has content, --FAILED")
+	helper.RemoveFile(destiny)
 }
