@@ -16,11 +16,11 @@ func CheckIfCompacted(path string) bool {
 	return ext == ".zip" || ext == ".rar" || ext == ".7"
 }
 
-func Unzip(path string, destiny string) []string {
+func Unzip(path string, destiny string) (contents []string, err error) {
 	r, err := newArchive(filepath.Join(path))
 
 	if err != nil {
-		panic(err)
+		return nil, err
 	}
 
 	defer r.Close()
@@ -29,14 +29,18 @@ func Unzip(path string, destiny string) []string {
 
 	if err != nil {
 		fmt.Print(err)
-		return []string{}
+		return []string{}, err
 	}
 
-	return utils.Filter(extractedFiles, CheckIfCompacted)
+	return utils.Filter(extractedFiles, CheckIfCompacted), nil
 }
 
 func UnzipAll(path string, destiny string) {
-	internalZips := Unzip(path, destiny)
+	internalZips, err := Unzip(path, destiny)
+
+	if err != nil {
+		panic(err)
+	}
 
 	if len(internalZips) == 0 {
 		fmt.Print("\n- Não há nenhum zip interno para o arquivo -> ", path)
