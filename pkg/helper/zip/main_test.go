@@ -34,7 +34,7 @@ func TestUnzipFails(t *testing.T) {
 
 func TestUnzipSuccess(t *testing.T) {
 	path, _ := filepath.Abs("../../../testdata/teste.zip")
-	var destiny = "test-output"
+	destiny, _ := filepath.Abs("../../../test-output")
 
 	expectedResponse := []string{"DWSample.zip"}
 
