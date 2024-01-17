@@ -13,3 +13,7 @@ func TestCheckIfCompacted(t *testing.T) {
 	assert.True(t, isZip, "Check if file is zip, --FAILED")
 
 }
+
+func TestUnzip(t *testing.T) {
+
+}
