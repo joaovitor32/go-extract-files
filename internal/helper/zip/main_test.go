@@ -2,7 +2,7 @@ package helper
 
 import (
 	"fmt"
-	helper "go-extract-files/pkg/helper/file"
+	helper "go-extract-files/internal/helper/file"
 	"path/filepath"
 	"testing"
 

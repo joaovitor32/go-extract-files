@@ -2,8 +2,8 @@ package helper
 
 import (
 	"fmt"
-	helper "go-extract-files/pkg/helper/file"
-	utils "go-extract-files/pkg/utils/array"
+	helper "go-extract-files/internal/helper/file"
+	utils "go-extract-files/internal/utils/array"
 	"path/filepath"
 
 	unarr "github.com/gen2brain/go-unarr"

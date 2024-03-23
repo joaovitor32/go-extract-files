@@ -1,7 +1,7 @@
 package main
 
 import (
-	helper "go-extract-files/pkg/helper/zip"
+	helper "go-extract-files/internal/helper/zip"
 )
 
 func main() {
